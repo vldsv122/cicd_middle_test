@@ -7,10 +7,7 @@ name: heroku-build-push
 
 # Run only on release branch and tags
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 env:
   # Use docker.io for Docker Hub if empty
