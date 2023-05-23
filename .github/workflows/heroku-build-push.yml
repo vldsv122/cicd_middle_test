@@ -56,17 +56,17 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      # Build and push Docker image with Buildx (don't push on PR)
-      # https://github.com/docker/build-push-action
-      - name: Build and push Docker image
-        id: build-and-push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          platforms: linux/amd64
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{env.IMAGE_NAME}}
-          file: ${{env.DOCKERFILE_LOCATION}}
+    #   # Build and push Docker image with Buildx (don't push on PR)
+    #   # https://github.com/docker/build-push-action
+    #   - name: Build and push Docker image
+    #     id: build-and-push
+    #     uses: docker/build-push-action@v2
+    #     with:
+    #       context: .
+    #       platforms: linux/amd64
+    #       push: ${{ github.event_name != 'pull_request' }}
+    #       tags: ${{env.IMAGE_NAME}}
+    #       file: ${{env.DOCKERFILE_LOCATION}}
       
     #   - name: Push to Heroku
     #     uses: akhileshns/heroku-deploy@v3.12.13 # This is the action
